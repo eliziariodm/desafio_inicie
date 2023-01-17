@@ -7,7 +7,7 @@ class AppTextStyles {
   static TextStyle textBold18 = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w700,
-    color: AppColors.white,
+    color: AppColors.primary,
     fontFamily: 'Nunito',
   );
   static TextStyle textBold35 = const TextStyle(

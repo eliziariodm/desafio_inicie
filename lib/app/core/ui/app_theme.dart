@@ -8,6 +8,10 @@ class AppTheme {
   static final ThemeData appThemeData = ThemeData(
     fontFamily: 'Nunito',
     primaryColor: AppColors.primary,
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+      primary: AppColors.primary,
+      secondary: AppColors.primary,
+    ),
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: AppColors.primary, size: 30)),

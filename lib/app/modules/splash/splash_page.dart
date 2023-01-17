@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 
 import '../../core/ui/app_images.dart';
 import '../../core/ui/app_text_styles.dart';
-import '../../core/widgets/custom_button_widget.dart';
 import '../../routes/app_pages.dart';
+import 'widgets/custom_button_widget.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});

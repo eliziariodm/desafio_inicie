@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../ui/app_colors.dart';
-import '../ui/app_icons.dart';
-import '../ui/app_text_styles.dart';
+import '../../../core/ui/app_colors.dart';
+import '../../../core/ui/app_icons.dart';
+import '../../../core/ui/app_text_styles.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   const CustomButtonWidget({super.key, required this.onTap});
@@ -32,7 +32,11 @@ class CustomButtonWidget extends StatelessWidget {
           children: [
             Text(
               'Começar',
-              style: AppTextStyles.textBold18,
+              style: AppTextStyles.textBold18.merge(
+                const TextStyle(
+                  color: AppColors.white,
+                ),
+              ),
             ),
             SvgPicture.asset(
               AppIcons.arrowRight,
