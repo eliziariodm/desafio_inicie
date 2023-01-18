@@ -4,6 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/ui/app_colors.dart';
 import '../../../core/ui/app_images.dart';
 import '../../../core/ui/app_text_styles.dart';
+import '../../../core/widgets/custom_category_button_widget.dart';
+import '../../details/details_page.dart';
+import '../widgets/custom_pokemon_container_widget.dart';
 import '../widgets/custom_search_button_widget.dart';
 
 class InitialPage extends StatelessWidget {
@@ -12,11 +15,14 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
-      builder: (context, constraints) => SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      builder: (context, constraints) => Container(
+        height: constraints.maxHeight,
+        width: constraints.maxWidth,
+        padding: const EdgeInsets.fromLTRB(20, 20, 2, 0),
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: 172,
@@ -65,6 +71,54 @@ class InitialPage extends StatelessWidget {
                     )
                   ],
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 20, 14, 10),
+                child: Text(
+                  'Tipo',
+                  style: AppTextStyles.textBold16,
+                ),
+              ),
+              SizedBox(
+                height: 28,
+                child: ListView.builder(
+                  padding: const EdgeInsets.only(left: 10),
+                  shrinkWrap: true,
+                  itemCount: 6,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: ((context, index) {
+                    return const CustomCategoryButtonWidget();
+                  }),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(14, 34, 14, 10),
+                child: Text(
+                  'Mais procurados',
+                  style: AppTextStyles.textBold16,
+                ),
+              ),
+              GridView.builder(
+                padding: const EdgeInsets.fromLTRB(10, 0, 20, 11),
+                shrinkWrap: true,
+                itemCount: 6,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 7,
+                  mainAxisSpacing: 15,
+                  childAspectRatio: 2 / 1.5,
+                ),
+                itemBuilder: ((context, index) {
+                  return CustomPokemonContainerWidget(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailsPage()));
+                    },
+                  );
+                }),
               ),
             ],
           ),

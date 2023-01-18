@@ -24,7 +24,9 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(initialPage: initialPage.value);
+    _pageController = PageController(
+      initialPage: initialPage.value,
+    );
   }
 
   @override
@@ -51,6 +53,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: PageView(
         controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
         onPageChanged: (page) {
           initialPage.value = page;
         },
@@ -101,4 +104,75 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+//formas de persistir o bottomnavigation mas ainda com bugs
+//  @override
+//   Widget build(BuildContext context) {
+//     final homeController = Get.find<HomeController>();
+
+//     return CupertinoTabScaffold(
+//       tabBar: CupertinoTabBar(
+//         items: <BottomNavigationBarItem>[
+//           BottomNavigationBarItem(
+//             icon: SvgPicture.asset(
+//               AppIcons.home,
+//               color: homeController.selectedIndex.value == 0
+//                   ? AppColors.primary
+//                   : AppColors.gray,
+//             ),
+//             label: 'Home',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: SvgPicture.asset(
+//               AppIcons.favorite,
+//               color: homeController.selectedIndex.value == 1
+//                   ? AppColors.primary
+//                   : AppColors.gray,
+//             ),
+//             label: 'Favoritos',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: SvgPicture.asset(
+//               AppIcons.account,
+//               color: homeController.selectedIndex.value == 2
+//                   ? AppColors.primary
+//                   : AppColors.gray,
+//             ),
+//             label: 'Minha conta',
+//           )
+//         ],
+//       ),
+//       tabBuilder: (context, index) {
+//         switch (index) {
+//           case 0:
+//             return CupertinoTabView(builder: (context) {
+//               homeController.selectedIndex.value = 0;
+//               return const CupertinoPageScaffold(
+//                 child: InitialPage(),
+//               );
+//             });
+//           case 1:
+//             return CupertinoTabView(builder: (context) {
+//               homeController.selectedIndex.value = 1;
+//               return const CupertinoPageScaffold(
+//                 child: FavoritePage(),
+//               );
+//             });
+//           case 2:
+//             return CupertinoTabView(builder: (context) {
+//               homeController.selectedIndex.value = 2;
+//               return const CupertinoPageScaffold(
+//                 child: AccountPage(),
+//               );
+//             });
+//           default:
+//             return CupertinoTabView(builder: (context) {
+//               homeController.selectedIndex.value = 0;
+//               return const CupertinoPageScaffold(
+//                 child: InitialPage(),
+//               );
+//             });
+//         }
+//       },
+//     );
+//   }
 }

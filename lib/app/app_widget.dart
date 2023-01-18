@@ -17,6 +17,7 @@ class AppWidget extends StatelessWidget {
       theme: AppTheme.appThemeData,
       home: const SplashPage(),
       initialBinding: SplashBinding(),
+      initialRoute: Routes.SPLASH,
       getPages: AppPages.routes,
       locale: const Locale('pt', 'BR'),
       localizationsDelegates: const [

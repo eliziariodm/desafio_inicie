@@ -52,7 +52,7 @@ class SplashPage extends StatelessWidget {
                 width: 226,
                 child: CustomButtonWidget(
                   onTap: () {
-                    Get.offNamed(Routes.HOME);
+                    Get.offAllNamed(Routes.HOME);
                   },
                 ),
               ),

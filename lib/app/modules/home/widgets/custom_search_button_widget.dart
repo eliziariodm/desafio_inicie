@@ -10,9 +10,18 @@ class CustomSearchButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 35,
       width: 200,
+      decoration: BoxDecoration(
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: AppColors.borderSearch.withOpacity(0.9),
+            blurRadius: 3,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: TextFormField(
         onChanged: ((value) {
           //controller.search(value);
@@ -32,7 +41,7 @@ class CustomSearchButtonWidget extends StatelessWidget {
           enabledBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(5)),
             borderSide: BorderSide(
-              color: AppColors.backgroundSearch,
+              color: AppColors.borderSearch,
             ),
           ),
           suffixIcon: SizedBox(
